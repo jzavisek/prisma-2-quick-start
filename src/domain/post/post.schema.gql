@@ -1,0 +1,57 @@
+input CreatePostInput {
+  navItemId: Int!
+  title: String!
+  content: String!
+  publishedAt: Date
+}
+
+input UpdatePostInput {
+  id: Int!
+  navItemId: Int!
+  title: String!
+  content: String!
+  publishedAt: Date
+}
+
+input DeletePostInput {
+  id: Int!
+}
+
+input PostsInput {
+  navItemId: Int!
+}
+
+input PostInput {
+  id: Int!
+}
+
+type PostsPayload {
+  items: [Post]
+}
+
+type PostPayload {
+  post: Post
+}
+
+type Post {
+  id: Int!
+  title: String!
+  content: String
+  publishedAt: Date
+  createdAt: Date!
+  updatedAt: Date
+  navItem: NavItem
+}
+
+# ------
+
+type Query {
+  posts(input: PostsInput): PostsPayload
+  post(input: PostInput!): PostPayload!
+}
+
+type Mutation {
+  createPost(input: CreatePostInput!): PostPayload!
+  updatePost(input: UpdatePostInput!): PostPayload!
+  deletePost(input: DeletePostInput!): PostPayload!
+}

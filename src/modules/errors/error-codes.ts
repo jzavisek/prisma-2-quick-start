@@ -1,0 +1,7 @@
+enum ErrorCode {
+  NOT_FOUND = 'NOT_FOUND',
+  NOT_AUTHORIZED = 'NOT_AUTHORIZED',
+  DUPLICATE_USER = 'DUPLICATE_USER',
+}
+
+export { ErrorCode }

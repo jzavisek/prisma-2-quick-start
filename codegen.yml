@@ -1,0 +1,7 @@
+generates:
+  ./src/graphql/types.d.ts:
+    schema:
+      - ./src/graphql/**/*.gql
+      - ./src/domain/**/*.gql
+    plugins:
+      - typescript

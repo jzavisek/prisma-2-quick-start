@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=cms-api
+    ports:
+      - 5444:5432
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1 -p 5432
+      interval: 10s

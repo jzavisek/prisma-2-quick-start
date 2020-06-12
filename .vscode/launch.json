@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "API",
+      "program": "${workspaceRoot}/node_modules/.bin/ts-node",
+      "args":[
+        "--transpile-only",
+        "--files",
+        "-r", "tsconfig-paths/register",
+        "${workspaceRoot}/src/graphql/server.ts"
+      ],
+      "env": {
+        "NODE_ENV": "local",
+        "LOG_LEVEL": "debug",
+      },
+      "outputCapture": "std"
+    },
+  ]
+}

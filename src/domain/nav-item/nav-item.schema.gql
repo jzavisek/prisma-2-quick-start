@@ -1,0 +1,47 @@
+input CreateNavItemInput {
+  title: String!
+  path: String!
+}
+
+input DeleteNavItemInput {
+  id: Int!
+}
+
+input UpdateNavItemInput {
+  id: Int!
+  title: String!
+  path: String!
+}
+
+input SetNavItemPositionInput {
+  id: Int!
+  position: Int!
+}
+
+type NavItem {
+  id: Int!
+  title: String!
+  path: String!
+  position: Int!
+}
+
+type NavItemPayload {
+  navItem: NavItem!
+}
+
+type NavItemsPayload {
+  items: [NavItem!]!
+}
+
+# ------
+
+type Query {
+  navItems: NavItemsPayload!
+}
+
+type Mutation {
+  createNavItem(input: CreateNavItemInput!): NavItemPayload!
+  updateNavItem(input: UpdateNavItemInput!): NavItemPayload!
+  setNavItemPosition(input: SetNavItemPositionInput!): NavItemPayload!
+  deleteNavItem(input: DeleteNavItemInput!): NavItemPayload!
+}
